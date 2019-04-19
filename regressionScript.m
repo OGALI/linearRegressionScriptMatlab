@@ -5,13 +5,10 @@ DATA = xlsread('data.xlsx',1);
 X = DATA(:,1);
 Y = DATA(:,2);
 
-
 % Generate the figure
 figure
 hold on
 plot(X, Y, 'ks','MarkerFaceColor','k','MarkerSize',7, 'DisplayName','Data Plot')
-
-
 
 % Polyfit and correlation coefficent
 R = corrcoef(X,Y);
@@ -42,7 +39,6 @@ XrangeFit = xlim(1):0.01:xlim(2);
 pf = polyval(p,XrangeFit);
 plot(XrangeFit, pf,'--k', 'Linewidth',1,'DisplayName','Linear Fit');
 
-
 % Custom fittype
 % myfittype = fittype('a*exp(-b*x)+c',...
 %     'dependent',{'y'},'independent',{'x'},...
@@ -53,13 +49,10 @@ plot(XrangeFit, pf,'--k', 'Linewidth',1,'DisplayName','Linear Fit');
 % customFit = ['y = ' sprintf('%3.3f e^{%3.3f x} + %3.3f', v(1),v(2),v(3))];
 % stats{end+1} = customFit;
 
-
 % Plot the stats on the graph
 t = text(xlim(1) + (xlim(2)-xlim(1))*0.5 ,ylim(1) + (ylim(2)-ylim(1))*0.9 , stats);
 t.FontSize = 20;
 t.FontSmoothing = 'on';
-
-
 
 % Plot the legend
 lgd = legend;
@@ -74,6 +67,4 @@ xlabel('Square root molar concentration, c^{1/2}, (M^{1/2})', 'FontSize', 14)
 
 % Add the grid
 grid on
-
-
 hold off
